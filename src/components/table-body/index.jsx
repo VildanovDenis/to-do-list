@@ -21,14 +21,30 @@ export class TableBody extends React.Component {
           description: "Описание задачи 2",
           priority: "1"
         }
-      ]
+      ],
+      newTask: {
+        name: "",
+        description: "",
+        priority: "",
+      }
     };
+  }
+
+  updateTaskList = (taskName, taskDesc, taskPri) => {
+    const newTask = {
+      name: taskName,
+      description: taskDesc,
+      priority: taskPri,
+    };
+    this.setState({
+      tasks: [...this.state.tasks, newTask]
+    });
   }
 
   render() {
     return (
       <React.Fragment>
-        <table class="to-do-list">
+        <table className="to-do-list">
           <tbody>
             <TableHead />
             {this.state.tasks.map((curr, index) => {
@@ -36,7 +52,7 @@ export class TableBody extends React.Component {
             })}
           </tbody>
         </table>
-        <TaskAdd />
+        <TaskAdd updateTaskList={this.updateTaskList}/>
       </React.Fragment>
     );
   }
