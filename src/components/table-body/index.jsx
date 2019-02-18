@@ -12,26 +12,33 @@ export class TableBody extends React.Component {
     this.state = {
       tasks: [
         {
+          id: 1,
           name: "Задача 1",
           description: "Описание задачи 1",
           priority: "3"
         },
         {
+          id: 2,
           name: "Задача 2",
           description: "Описание задачи 2",
           priority: "1"
         }
       ],
       newTask: {
+        id: null,
         name: "",
         description: "",
         priority: "",
-      }
+      },
+      
     };
+    // this.onDeleteTaskClick = this.onDeleteTaskClick.bind(this);
   }
 
-  updateTaskList = (taskName, taskDesc, taskPri) => {
+  addTask = (taskName, taskDesc, taskPri) => {
+    const taskId = new Date();
     const newTask = {
+      id: taskId.getMilliseconds(),
       name: taskName,
       description: taskDesc,
       priority: taskPri,
@@ -41,18 +48,29 @@ export class TableBody extends React.Component {
     });
   }
 
+  deleteTask = (i) => {
+    const id = i;
+    const newTasksList = this.state.tasks.filter((task) => {
+      return task.id !== id
+    });
+    console.log(newTasksList);
+    this.setState({
+      tasks: newTasksList,
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
         <table className="to-do-list">
           <tbody>
             <TableHead />
-            {this.state.tasks.map((curr, index) => {
-              return <TableMain key={index} task={curr} />;
+            {this.state.tasks.map((curr) => {
+              return <TableMain key={curr.id} task={curr} deleteTask={this.deleteTask}/>;
             })}
           </tbody>
         </table>
-        <TaskAdd updateTaskList={this.updateTaskList}/>
+        <TaskAdd addTask={this.addTask}/>
       </React.Fragment>
     );
   }

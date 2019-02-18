@@ -33,7 +33,7 @@ export class TaskAdd extends React.Component {
     if (this.state.priorityInput === "Приоритет") {
       this.setState({ priorityInput: "1"})
     }
-    this.props.updateTaskList(this.state.nameInput, this.state.descriptionInput, this.state.priorityInput);
+    this.props.addTask(this.state.nameInput, this.state.descriptionInput, this.state.priorityInput);
     this.setState({
       nameInput: '',
       descriptionInput: '',

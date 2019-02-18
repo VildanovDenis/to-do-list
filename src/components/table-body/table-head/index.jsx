@@ -7,6 +7,7 @@ export class TableHead extends React.Component {
       <th className="name">Название</th>
       <th className="description">Описание</th>
       <th className="priotiry">Приоритет</th>
+      <th className="del-task"></th>
     </tr>
     )
   }
