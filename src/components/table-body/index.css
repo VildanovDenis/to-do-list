@@ -1,0 +1,28 @@
+.to-do-list {
+  width: 800px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+.to-do-list tr:nth-child(even) {
+  border-bottom: 2px solid rgb(160, 160, 160);
+  background-color: rgb(230, 230, 230);
+}
+.to-do-list th,
+.to-do-list td {
+  padding: 5px;
+}
+.task-add {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 10px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.task-add input,
+.task-add textarea,
+.task-add select {
+  margin-bottom: 10px;
+}
