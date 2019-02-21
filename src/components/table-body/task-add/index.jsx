@@ -30,10 +30,11 @@ export class TaskAdd extends React.Component {
     })
   }
   onAddButtonClick() {
-    if (this.state.priorityInput === "Приоритет") {
-      this.setState({ priorityInput: "1"})
-    }
-    this.props.addTask(this.state.nameInput, this.state.descriptionInput, this.state.priorityInput);
+    let priorityValue = this.state.priorityInput;
+    if (priorityValue === "Приоритет") {
+      priorityValue = "1";
+    };
+    this.props.addTask(this.state.nameInput, this.state.descriptionInput, priorityValue);
     this.setState({
       nameInput: '',
       descriptionInput: '',

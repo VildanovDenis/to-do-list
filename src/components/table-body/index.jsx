@@ -24,13 +24,6 @@ export class TableBody extends React.Component {
           priority: "1"
         }
       ],
-      newTask: {
-        id: null,
-        name: "",
-        description: "",
-        priority: "",
-      },
-      
     };
   }
 
