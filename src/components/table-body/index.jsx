@@ -32,7 +32,6 @@ export class TableBody extends React.Component {
       },
       
     };
-    // this.onDeleteTaskClick = this.onDeleteTaskClick.bind(this);
   }
 
   addTask = (taskName, taskDesc, taskPri) => {

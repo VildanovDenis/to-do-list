@@ -6,7 +6,7 @@ export class TaskAdd extends React.Component {
     this.state = {
       nameInput: '',
       descriptionInput: '',
-      priorityInput: '',
+      priorityInput: 'Приоритет',
     };
     this.onNameInputChange = this.onNameInputChange.bind(this);
     this.onDescriptionInputChange = this.onDescriptionInputChange.bind(this);
@@ -37,7 +37,7 @@ export class TaskAdd extends React.Component {
     this.setState({
       nameInput: '',
       descriptionInput: '',
-      priorityInput: '',
+      priorityInput: 'Приоритет',
     })
   }
 
@@ -46,8 +46,8 @@ export class TaskAdd extends React.Component {
       <form className="task-add">
         <input id="name" placeholder="Название задачи" onChange={this.onNameInputChange} value={this.state.nameInput}></input>
         <textarea id="description" placeholder="Описание задачи" onChange={this.onDescriptionInputChange} value={this.state.descriptionInput}></textarea>
-        <select id="priority" onChange={this.onPriorityInputChange}>
-          <option defaultValue>Приоритет</option>
+        <select id="priority" value={this.state.priorityInput} onChange={this.onPriorityInputChange}>
+          <option>Приоритет</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
